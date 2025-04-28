@@ -47,7 +47,7 @@
                 <button type="submit">S'inscrire</button>
             </form>
             <div class="signup-link">
-                Déjà un compte ? <a href="login.php">Se connecter</a>
+                Déjà un compte ? <a href="index.php">Se connecter</a>
             </div>
         </div>
     </div>
