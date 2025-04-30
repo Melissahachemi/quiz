@@ -19,7 +19,6 @@
         <div class="login-container">
             <h2>Créer un compte MYqwiz</h2>
             <?php
-                // Affichage des erreurs d'inscription s'il y en a
                 if (isset($_GET['error']) && $_GET['error'] === 'email_exists') {
                     echo '<p class="error-message">Cet email est déjà utilisé.</p>';
                 }
