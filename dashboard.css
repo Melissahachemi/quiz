@@ -1,0 +1,111 @@
+body {
+  font-family: 'Comfortaa', sans-serif;
+  background-color: #A7D1EB;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.dashboard-header .left {
+  text-align: center;  /* Centrer le texte du message de bienvenue */
+}
+
+.dashboard-header h1 {
+  font-size: 2.5em;
+  color: #362121;
+}
+
+.dashboard-header p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.dashboard-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  margin: 0 auto 40px auto;
+}
+
+.btn {
+  padding: 20px;  /* Agrandir les boutons */
+  font-size: 1.5em;  /* Agrandir la taille du texte */
+  background-color: #f4dada;
+  color: #333;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: #a877b6;
+  color: white;
+  transform: scale(1.05);  /* Légère animation pour agrandir le bouton au survol */
+}
+
+.extras p {
+  font-size: 1.1em;
+  color: #444;
+  margin: 10px 0;
+}
+
+.extras a {
+  text-decoration: none;
+  color: #362121;
+  font-weight: bold;
+}
+
+.extras a:hover {
+  text-decoration: underline;
+}
+
+/* Style du bouton de déconnexion */
+.logout-button {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  background-color: #f4dada;
+  color: #333;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  max-width: 250px;  /* Optionnel : pour limiter la largeur */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logout-button:hover {
+  background-color: #a877b6;
+  color: white;
+}
+
+/* Mise en page responsive pour mobile */
+@media (max-width: 768px) {
+  .button-group {
+      max-width: 100%;
+  }
+
+  .btn {
+      font-size: 1.2em;  /* Réduire la taille des boutons sur mobile */
+      padding: 15px;
+  }
+}
