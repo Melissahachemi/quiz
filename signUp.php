@@ -20,8 +20,12 @@
             <h2>Créer un compte MYqwiz</h2>
             <?php
                 // Affichage des erreurs d'inscription s'il y en a
-                if (isset($_GET['error']) && $_GET['error'] === 'email_exists') {
-                    echo '<p class="error-message">Cet email est déjà utilisé.</p>';
+                if (isset($_GET['error']) && $_GET['error'] === '1' && isset($_GET['error'])) {
+                    foreach ($_GET['error'] as $error) {
+                        echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
+                    }
+                } elseif (isset($_GET['signup_success']) && $_GET['signup_success'] === '1') {
+                    echo '<p class="success-message">Inscription réussie ! Vous pouvez maintenant vous connecter.</p>';
                 }
             ?>
             <form action="process_signup.php" method="post">
@@ -37,7 +41,7 @@
                     <label for="password">Mot de passe:</label>
                     <div class="password-container">
         <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-        <button type="button" id="togglePassword">Afficher</button>
+        <button type="button" id="togglePassword-signup">Afficher</button>
     </div>
                 </div>
                 <div class="form-group">

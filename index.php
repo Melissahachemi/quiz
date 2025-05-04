@@ -32,7 +32,7 @@
                     <label for="password">Mot de passe:</label>
                     <div class="password-container">
                         <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-                        <button type="button" id="togglePassword">Afficher</button>
+                        <button type="button" id="togglePassword-login">Afficher</button>
                     </div>
                 </div>
                 <button type="submit">Se connecter</button>
