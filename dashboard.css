@@ -1,0 +1,121 @@
+/* Style général du body */
+body {
+  font-family: 'Comfortaa', sans-serif;
+  background-color: #A7D1EB;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style de la modale */
+.modal {
+  display: none; /* Commence cachée */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding-top: 50px; /* Ajoute de l'espace au dessus */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #362121;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.modal-content ul li {
+  padding: 10px;
+  font-size: 1.2em;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-content ul li:last-child {
+  border-bottom: none; /* Retirer la bordure du dernier élément */
+}
+
+/* Style du bouton de fermeture */
+.close {
+  color: #aaa;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Style des autres éléments (par exemple, les boutons) */
+.dashboard-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  margin: 0 auto 40px auto;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 1.5em;
+  background-color: #f4dada;
+  color: #333;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: #a877b6;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Modifie l'apparence de "Amis en ligne" */
+.amis-en-ligne {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.amis-en-ligne p {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.amis-en-ligne:hover p {
+  color: #007bff;
+  text-decoration: underline;
+}
