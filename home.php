@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 ?>
@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - MYqwiz</title>
-  <link rel="stylesheet" href="new_game_page.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
 

@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             // Rediriger vers la page d'accueil ou une autre page sécurisée
-            header('Location: new_game.php?login_success=1'); // Créez une page new_game.php
+            header('Location: home.php?login_success=1'); // Créez une page home.php
             exit();
         } else {
             // Mot de passe incorrect
