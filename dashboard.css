@@ -1,3 +1,4 @@
+/* Style général du body */
 body {
   font-family: 'Comfortaa', sans-serif;
   background-color: #A7D1EB;
@@ -5,27 +6,69 @@ body {
   padding: 0;
 }
 
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Style de la modale */
+.modal {
+  display: none; /* Commence cachée */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding-top: 50px; /* Ajoute de l'espace au dessus */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
   padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.dashboard-header .left {
-  text-align: center;  /* Centrer le texte du message de bienvenue */
-}
-
-.dashboard-header h1 {
-  font-size: 2.5em;
+.modal-content h2 {
   color: #362121;
+  font-size: 1.8em;
+  margin-bottom: 20px;
 }
 
-.dashboard-header p {
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.modal-content ul li {
+  padding: 10px;
   font-size: 1.2em;
-  color: #555;
+  color: #333;
+  border-bottom: 1px solid #ddd;
 }
 
+.modal-content ul li:last-child {
+  border-bottom: none; /* Retirer la bordure du dernier élément */
+}
+
+/* Style du bouton de fermeture */
+.close {
+  color: #aaa;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Style des autres éléments (par exemple, les boutons) */
 .dashboard-container {
   text-align: center;
   padding: 60px 20px;
@@ -40,8 +83,8 @@ body {
 }
 
 .btn {
-  padding: 20px;  /* Agrandir les boutons */
-  font-size: 1.5em;  /* Agrandir la taille du texte */
+  padding: 20px;
+  font-size: 1.5em;
   background-color: #f4dada;
   color: #333;
   text-decoration: none;
@@ -56,56 +99,23 @@ body {
 .btn:hover {
   background-color: #a877b6;
   color: white;
-  transform: scale(1.05);  /* Légère animation pour agrandir le bouton au survol */
+  transform: scale(1.05);
 }
 
-.extras p {
-  font-size: 1.1em;
-  color: #444;
-  margin: 10px 0;
+/* Modifie l'apparence de "Amis en ligne" */
+.amis-en-ligne {
+  margin-top: 20px;
+  cursor: pointer;
 }
 
-.extras a {
-  text-decoration: none;
-  color: #362121;
-  font-weight: bold;
-}
-
-.extras a:hover {
-  text-decoration: underline;
-}
-
-/* Style du bouton de déconnexion */
-.logout-button {
-  padding: 12px 20px;
+.amis-en-ligne p {
   font-size: 1.2em;
-  background-color: #f4dada;
   color: #333;
-  text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  max-width: 250px;  /* Optionnel : pour limiter la largeur */
-  left: 50%;
-  transform: translateX(-50%);
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.logout-button:hover {
-  background-color: #a877b6;
-  color: white;
-}
-
-/* Mise en page responsive pour mobile */
-@media (max-width: 768px) {
-  .button-group {
-      max-width: 100%;
-  }
-
-  .btn {
-      font-size: 1.2em;  /* Réduire la taille des boutons sur mobile */
-      padding: 15px;
-  }
+.amis-en-ligne:hover p {
+  color: #007bff;
+  text-decoration: underline;
 }

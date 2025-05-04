@@ -1,12 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['nom_utilisateur'])) {
-    header("Location: login.php");
-    exit();
-}
-$nom_utilisateur = $_SESSION['nom_utilisateur'];
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,12 +10,6 @@ $nom_utilisateur = $_SESSION['nom_utilisateur'];
   <div class="dashboard-header">
     <div class="left">
       <h1>Bienvenue, <?php echo htmlspecialchars($nom_utilisateur); ?> 👋</h1>
-      <p>Prête à tester tes connaissances ?</p>
-    </div>
-    <div class="right">
-      <form action="logout.php" method="post">
-        <button type="submit" class="logout-button">Déconnexion</button>
-      </form>
     </div>
   </div>
 
@@ -36,10 +21,29 @@ $nom_utilisateur = $_SESSION['nom_utilisateur'];
     </div>
 
     <div class="extras">
-      <p>📚 Envie d’apprendre en t’amusant ?</p>
-      <a href="profil.php">Voir mon profil</a>
+      <!-- Modification ici -->
+      <p id="amis-en-ligne" class="amis-en-ligne">
+        <strong>👥 Amis en ligne :</strong> <span id="nbr-en-ligne">3</span>
+      </p>
     </div>
   </div>
 
+  <!-- Modale personnalisée -->
+  <div id="modal-amis" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Amis en ligne</h2>
+      <ul id="liste-amis"></ul>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <form action="logout.php" method="post">
+      <button type="submit" class="logout-button">Déconnexion</button>
+    </form>
+  </div>
+
+  <!-- Script Javascript -->
+  <script src="dashboard.js"></script>
 </body>
 </html>
