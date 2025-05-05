@@ -1,14 +1,17 @@
 <?php
 $host = 'localhost';
 $dbname = 'qwiz';
-$username = 'root'; 
-$password = '';     
+$username = 'root';
+$password = '';
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    // Configurer PDO pour afficher les erreurs en mode exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+// Connexion avec MySQLi en mode procédural
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+// Vérification de la connexion
+if (!$conn) {
+    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
 }
+
+// Définir l'encodage des caractères
+mysqli_set_charset($conn, "utf8");
 ?>

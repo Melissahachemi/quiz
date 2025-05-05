@@ -1,74 +1,68 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-// Inclure le fichier de connexion à la base de données 
+session_start();
 require_once 'db_connect.php';
 
-// Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer les données du formulaire
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+    // Récupération des champs du formulaire
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Tableau pour stocker les erreurs
-    $errors = [];
-
-    // Vérification de l'email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "L'adresse email n'est pas valide.";
-    }
-
-    // Vérification de la longueur du mot de passe (minimum 6 caractères par exemple)
-    if (strlen($password) < 6) {
-        $errors[] = "Le mot de passe doit contenir au moins 6 caractères.";
-    }
-
-    // Vérification si les mots de passe correspondent
-    if ($password !== $confirm_password) {
-        $errors[] = "Les mots de passe ne correspondent pas.";
-    }
-
-    // Vérifier si l'email existe déjà dans la base de données
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-    if ($stmt->fetchColumn() > 0) {
-        $errors[] = "Cet email est déjà utilisé.";
-    }
-
-    // S'il n'y a pas d'erreurs, enregistrer l'utilisateur
-    if (empty($errors)) {
-        // Hacher le mot de passe de manière sécurisée
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Préparer la requête d'insertion
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $hashed_password);
-
-        // Exécuter la requête
-        if ($stmt->execute()) {
-            // Rediriger vers une page de succès ou la page de connexion
-            header('Location: index.php?signup_success=1');
-            exit();
-        } else {
-            // En cas d'erreur lors de l'enregistrement
-            $errors[] = "Une erreur est survenue lors de la création du compte.";
-        }
-    }
-
-    // S'il y a des erreurs, rediriger vers la page d'inscription avec les erreurs
-    if (!empty($errors)) {
-        $error_string = implode('&error[]=', $errors);
-        header('Location: signup.php?error=1&error[]=' . $error_string);
+    // Validation basique (tu peux en ajouter plus)
+    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+        header('Location: signUp.php?error=empty_fields');
         exit();
     }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header('Location: signUp.php?error=invalid_email');
+        exit();
+    }
+
+    if ($password !== $confirm_password) {
+        header('Location: signUp.php?error=password_mismatch');
+        exit();
+    }
+
+    // Vérifie si l'email ou le nom d'utilisateur existe déjà
+    $sql_check = "SELECT id FROM users WHERE email = ? OR username = ?";
+    $stmt_check = mysqli_prepare($conn, $sql_check);
+    if (!$stmt_check) {
+        die("Erreur lors de la préparation : " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt_check, "ss", $email, $username);
+    mysqli_stmt_execute($stmt_check);
+    mysqli_stmt_store_result($stmt_check);
+
+    if (mysqli_stmt_num_rows($stmt_check) > 0) {
+        header('Location: signUp.php?error=user_exists');
+        exit();
+    }
+
+    // Hachage du mot de passe
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Insertion du nouvel utilisateur
+    $sql_insert = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $stmt_insert = mysqli_prepare($conn, $sql_insert);
+    if (!$stmt_insert) {
+        die("Erreur lors de la préparation : " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt_insert, "sss", $username, $email, $hashed_password);
+    if (mysqli_stmt_execute($stmt_insert)) {
+        // Inscription réussie → redirige vers login
+        header('Location: index.php?signup_success=1');
+        exit();
+    } else {
+        header('Location: signUp.php?error=insert_failed');
+        exit();
+    }
+
 } else {
-    // Si on accède à ce fichier sans soumettre le formulaire
-    header('Location: signup.php');
+    header('Location: signUp.php');
     exit();
 }
 ?>

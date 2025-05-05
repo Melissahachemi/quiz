@@ -6,19 +6,44 @@
     <link rel="stylesheet" href="dashboard.css">
     </head>
     <body>
+        <?php 
+            session_start(); 
+        ?>
 
         <div class="dashboard-header">
             <div class="left">
-            <h1>Bienvenue, <?php echo htmlspecialchars($nom_utilisateur); ?> 👋</h1>
-            <p>entrer your bio : </p>
+            <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</h1>
             </div>
+            <div class="bio-section">
+                <h3>🖊️ Votre biographie :</h3>
+
+                <?php
+                require_once 'db_connect.php';
+                $user_id = $_SESSION['user_id'];
+
+                // Récupérer la bio actuelle de l'utilisateur
+                $query = "SELECT bio FROM users WHERE id = ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "i", $user_id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $bio);
+                mysqli_stmt_fetch($stmt);
+                mysqli_stmt_close($stmt);
+                ?>
+
+                <form method="post" action="update_bio.php">
+                    <textarea name="bio" rows="2" cols="30" placeholder="Ajoutez une bio..."><?php echo htmlspecialchars($bio); ?></textarea><br>
+                    <button type="submit" id="btn_b">Mettre à jour</button>
+                </form>
+            </div>
+
         </div>
 
         <div class="dashboard-container">
             <div class="button-group">
-            <a href="new_game_page.php" class="btn">🎮 Lancer un quiz</a>
-            <a href="mes_scores.php" class="btn">📊 Mes scores</a>
-            <a href="classement.php" class="btn">🏆 Classement</a>
+            <a href="home.php" class="btn">🎮 Lancer un quiz</a>
+            <span class="btn">📊 Best Score</span>
+            <span class="btn">🏆 Classement</span>
             </div>
 
             <div class="extras">

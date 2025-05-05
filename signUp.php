@@ -19,14 +19,35 @@
         <div class="login-container">
             <h2>Créer un compte MYqwiz</h2>
             <?php
-                // Affichage des erreurs d'inscription s'il y en a
-                if (isset($_GET['error']) && $_GET['error'] === '1' && isset($_GET['error'])) {
-                    foreach ($_GET['error'] as $error) {
-                        echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
+                
+                if (isset($_GET['error'])) {
+                    $error = $_GET['error'];
+                
+                    switch ($error) {
+                        case 'empty_fields':
+                            echo '<p class="error-message">Veuillez remplir tous les champs.</p>';
+                            break;
+                        case 'invalid_email':
+                            echo '<p class="error-message">Adresse email invalide.</p>';
+                            break;
+                        case 'password_mismatch':
+                            echo '<p class="error-message">Les mots de passe ne correspondent pas.</p>';
+                            break;
+                        case 'user_exists':
+                            echo '<p class="error-message">Un compte avec ce nom ou email existe déjà.</p>';
+                            break;
+                        case 'insert_failed':
+                            echo '<p class="error-message">Erreur lors de l\'enregistrement. Veuillez réessayer.</p>';
+                            break;
+                        default:
+                            echo '<p class="error-message">Erreur inconnue.</p>';
+                            break;
                     }
                 } elseif (isset($_GET['signup_success']) && $_GET['signup_success'] === '1') {
                     echo '<p class="success-message">Inscription réussie ! Vous pouvez maintenant vous connecter.</p>';
                 }
+                
+                
             ?>
             <form action="process_signup.php" method="post">
                 <div class="form-group">

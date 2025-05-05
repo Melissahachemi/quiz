@@ -69,7 +69,8 @@ body {
   }
   
   /* Style des autres éléments (par exemple, les boutons) */
-  .dashboard-container {
+  .dashboard-container,
+  .dashboard-header {
     text-align: center;
     padding: 60px 20px;
   }
@@ -119,3 +120,43 @@ body {
     color: #007bff;
     text-decoration: underline;
   }
+.logout-button{
+  background-color:  #f4dada;
+  color: rgb(13, 13, 13);
+  position: absolute;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  
+}
+
+.dashboard-footer{
+  position:relative;
+  max-height: 30px;
+  width: 25%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.logout-button:hover{
+  background-color: #a877b6;
+  color: white;
+  transform: scale(2);
+  border: #f4dada dashed 1px;
+}
+
+#btn_b{
+  background-color:  #f4dada;
+  color: rgb(13, 13, 13);
+  border: 0;
+  border-radius: 10px;
+
+}
+
+#btn_b:hover{
+  background-color: #a877b6;
+  color: white;
+  transform: scale(1.2);
+  border: #f4dada dashed 1px;
+
+}
