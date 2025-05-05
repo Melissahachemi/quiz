@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             // Rediriger vers la page d'accueil ou une autre page sécurisée
-            header('Location: home.php?login_success=1'); // Créez une page home.php
+            header('Location: dashboard.php?login_success=1'); // Créez une page home.php
             exit();
         } else {
             // Mot de passe incorrect
@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         // Utilisateur non trouvé
-        header('Location: index.php?error=invalid_credentials');
+        header('Location: dashboard.php?error=invalid_credentials');
         exit();
     }
 } else {
     // Si on accède à ce fichier sans soumettre le formulaire
-    header('Location: index.php');
+    header('Location: dashboard.php');
     exit();
 }
 ?>

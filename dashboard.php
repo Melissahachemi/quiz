@@ -10,6 +10,7 @@
         <div class="dashboard-header">
             <div class="left">
             <h1>Bienvenue, <?php echo htmlspecialchars($nom_utilisateur); ?> 👋</h1>
+            <p>entrer your bio : </p>
             </div>
         </div>
 
