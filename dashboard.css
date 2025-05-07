@@ -124,12 +124,14 @@ body {
   background-color:  #f4dada;
   color: rgb(13, 13, 13);
   position: absolute;
-  width: 100%;
+  width: 180px;
   border: 0;
   border-radius: 12px;
+  top: 20px;
+  right: 20px;
   
 }
-
+/*
 .dashboard-footer{
   position:relative;
   max-height: 30px;
@@ -137,12 +139,14 @@ body {
   left: 50%;
   transform: translate(-50%);
 }
+  */
 
 .logout-button:hover{
   background-color: #a877b6;
   color: white;
-  transform: scale(2);
-  border: #f4dada dashed 1px;
+  transform: scale(1.08);
+  box-shadow: #d12182 ;
+  
 }
 
 #btn_b{
