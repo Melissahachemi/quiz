@@ -1,166 +1,219 @@
 /* Style général du body */
 body {
-    font-family: 'Comfortaa', sans-serif;
-    background-color: #A7D1EB;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style de la modale */
-  .modal {
-    display: none; /* Commence cachée */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    padding-top: 50px; /* Ajoute de l'espace au dessus */
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .modal-content h2 {
-    color: #362121;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-  }
-  
-  .modal-content ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-  }
-  
-  .modal-content ul li {
-    padding: 10px;
-    font-size: 1.2em;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .modal-content ul li:last-child {
-    border-bottom: none; /* Retirer la bordure du dernier élément */
-  }
-  
-  /* Style du bouton de fermeture */
-  .close {
-    color: #aaa;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-  }
-  
-  /* Style des autres éléments (par exemple, les boutons) */
-  .dashboard-container,
-  .dashboard-header {
-    text-align: center;
-    padding: 60px 20px;
-  }
-  
-  .button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 300px;
-    margin: 0 auto 40px auto;
-  }
-  
-  .btn {
-    padding: 20px;
-    font-size: 1.5em;
-    background-color: #f4dada;
-    color: #333;
-    text-decoration: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .btn:hover {
-    background-color: #a877b6;
-    color: white;
-    transform: scale(1.05);
-  }
-  
-  /* Modifie l'apparence de "Amis en ligne" */
-  .amis-en-ligne {
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  .amis-en-ligne p {
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .amis-en-ligne:hover p {
-    color: #007bff;
-    text-decoration: underline;
-  }
-.logout-button{
-  background-color:  #f4dada;
-  color: rgb(13, 13, 13);
-  position: absolute;
-  width: 180px;
-  border: 0;
-  border-radius: 12px;
-  top: 20px;
-  right: 20px;
-  
+  font-family: 'Comfortaa', sans-serif;
+  background-color: #A7D1EB;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, Content, Footer (le footer est implicite ici) */
+  min-height: 100vh;
+  color: #362121; /* Couleur de texte principale */
 }
-/*
-.dashboard-footer{
-  position:relative;
-  max-height: 30px;
-  width: 25%;
-  left: 50%;
-  transform: translate(-50%);
-}
-  */
 
-.logout-button:hover{
+/* Style de l'en-tête (header) */
+.dashboard-header {
+  background-color: #f4dada;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* Titre, Bio, Logout */
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header .left h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #362121;
+}
+
+/* Style de la section de la biographie */
+.bio-section {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+
+.bio-section h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #362121;
+  margin-bottom: 10px;
+}
+
+.bio-section textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.bio-section button#btn_b {
   background-color: #a877b6;
   color: white;
-  transform: scale(1.08);
-  box-shadow: #d12182 ;
-  
-}
-
-#btn_b{
-  background-color:  #f4dada;
-  color: rgb(13, 13, 13);
   border: 0;
   border-radius: 10px;
-
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#btn_b:hover{
+.bio-section button#btn_b:hover {
+  background-color: #d12182;
+  transform: scale(1.05);
+}
+
+/* Style du conteneur principal */
+.dashboard-container {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Style du groupe de boutons */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+/* Style des boutons principaux */
+.btn {
+  padding: 15px 25px;
+  font-size: 1.3em;
+  background-color: #f4dada;
+  color: #362121;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
   background-color: #a877b6;
   color: white;
-  transform: scale(1.2);
-  border: #f4dada dashed 1px;
+  transform: scale(1.05);
+}
 
+/* Style de la section "Amis en ligne" */
+.amis-en-ligne {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.amis-en-ligne p {
+  font-size: 1.1em;
+  color: #362121;
+  font-weight: bold;
+  margin: 0;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.amis-en-ligne:hover p {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Style du bouton de déconnexion */
+.logout-button {
+  background-color: #815367;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button:hover {
+  background-color: #9816de;
+  transform: scale(1.05);
+}
+
+/* Style de la modale */
+.modal {
+  display: none; /* Commence cachée */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding-top: 50px; /* Ajoute de l'espace au dessus */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #362121;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.modal-content ul li {
+  padding: 10px;
+  font-size: 1.2em;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-content ul li:last-child {
+  border-bottom: none; /* Retirer la bordure du dernier élément */
+}
+
+/* Style du bouton de fermeture de la modale */
+.close {
+  color: #aaa;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
 }
