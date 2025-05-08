@@ -53,7 +53,7 @@
             <span class="btn">🏆 Classement</span>
         </div>
 
-        <div class="extras amis-en-ligne">
+        <div class="extras amis-en-ligne" id="amis-en-ligne">
             <p>
                 <strong>👥 Amis en ligne :</strong> <span id="nbr-en-ligne">3</span>
             </p>

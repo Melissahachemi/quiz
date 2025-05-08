@@ -97,7 +97,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.3s ease;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -112,7 +112,7 @@ body {
 .amis-en-ligne {
   margin-top: 20px;
   cursor: pointer;
-  background-color: #fff;
+  background-color:#f4dada;
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -127,14 +127,14 @@ body {
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
-.amis-en-ligne:hover p {
-  color: #007bff;
-  text-decoration: underline;
+.amis-en-ligne:hover {
+  background-color: #a877b6;
+  transform: scale(1.08);
 }
 
 /* Style du bouton de déconnexion */
 .logout-button {
-  background-color: #815367;
+  background-color:#a877b6;
   color: white;
   border: 0;
   border-radius: 12px;
@@ -149,7 +149,7 @@ body {
 }
 
 .logout-button:hover {
-  background-color: #9816de;
+  background-color: #d12182;
   transform: scale(1.05);
 }
 

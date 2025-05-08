@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 
 </div>
-<a href="logout.php">Se déconnecter</a>
+<a href="logout.php" id="deconnection">Se déconnecter</a>
 
 </body>
 </html>

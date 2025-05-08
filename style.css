@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px; /* Garde un peu de marge autour */
-    flex-direction: row-reverse; /* Inverse l'ordre des éléments enfants */
+    /* flex-direction: row-reverse; Inverse l'ordre des éléments enfants */
   }
   
   .page-container {
