@@ -11,7 +11,7 @@ $_SESSION['quiz_end_time'] = time() + $temps_limite;
 mysqli_close($conn);
 ?>
 
-<h1>Quiz Films</h1>
+<h1>Quiz Films/Series</h1>
 
 <?php foreach ($questions as $index => $question): ?>
     <div class="question" id="question<?php echo $index; ?>" style="display:<?php echo ($index == 0) ? 'block' : 'none'; ?>;">

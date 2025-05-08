@@ -1,51 +1,93 @@
 /* quiz_style.css */
 
-/* Styles de base pour les questions et les boutons */
-.question {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.next-btn, button[type="submit"] {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.next-btn:hover, button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-#timer {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #dc3545;
-}
-
 body {
-    font-family: sans-serif;
-    text-align: center;
-    background-color: #f0f0f0; /* Un gris clair pour le fond */
-    margin: 0;
-    padding: 20px;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #A7D1EB;/* Couleur de fond claire, similaire au dashboard */
+    color: #333; /* Couleur de texte principale */
+    margin: 20px; /* Ajoute une marge autour du contenu */
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #a877b6; /* Couleur d'accentuation, similaire au dashboard */
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-label {
-    display: block;
-    margin: 10px 0;
+p#timer {
+    font-size: 1.2em;
+    color: #d9534f; /* Couleur pour indiquer le temps */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#quiz-form {
+    background-color: #f4dada;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.question {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color:#a877b6;
+}
+
+.question p {
+    font-size: 1.1em;
+    color: #362121;
+    margin-bottom: 15px;
+}
+
+.question label {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #000000;
     cursor: pointer;
 }
 
-input[type="radio"] {
-    margin-right: 5px;
+.question input[type="radio"] {
+    margin-right: 8px;
 }
+
+.next-btn,
+#quiz-form button[type="submit"] {
+    background-color: #020912; /* Couleur bleue, contraste avec le dashboard */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-btn:hover,
+#quiz-form button[type="submit"]:hover {
+    background-color: #7a99bb;
+}
+
+.next-btn {
+    margin-top: 15px;
+}
+
+#quiz-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Adaptation pour s'intégrer potentiellement dans une partie du dashboard */
+/* Si le quiz doit être intégré dans une section spécifique du dashboard, */
+/* vous pourriez avoir besoin d'ajuster les marges et la largeur max. */
+/* Par exemple: */
+/*.dashboard-section #quiz-form {
+    max-width: none; !* Enlever la largeur max si dans une section *!
+    margin: 20px 0;
+}*/
