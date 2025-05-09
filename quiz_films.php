@@ -19,9 +19,7 @@ mysqli_close($conn);
     <link rel="stylesheet" href="quiz_style.css">
 </head>
 <body>
-
-<p>Temps restant : <span id="timer"><?php echo $temps_limite; ?></span> secondes</p>
-
+    
 <form id="quiz-form" action="traitement_quiz.php" method="post">
 
     <h1>Quiz Films/Series</h1>

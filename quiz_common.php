@@ -49,6 +49,6 @@ function getQuestions($conn, $categorie, $nombre_questions) {
 </head>
 <body>
 
-<p>Temps restant : <span id="timer"><?php echo $temps_limite; ?></span> secondes</p>
+<p data-time-limit="<?php echo $temps_limite; ?>">Temps restant : <span id="timer"></span> secondes</p>
 
 <form id="quiz-form" action="traitement_quiz.php" method="post">
