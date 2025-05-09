@@ -25,6 +25,14 @@ mysqli_close($conn);
 
     </head>
 <body>
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo MYqwiz" class="top-right-logo">
+    </div>
+    
+        <div class="right-content">
+        <p class="slogan">Mission accomplie ! Vos neurones ont brillamment relevé le défi</p>
+        <img src="mario.jpg" alt="supermario" class="mario">
+</div>
 <h1 >Résultats du Quiz <?php echo htmlspecialchars($nom_categorie); ?></h1>
 
 <div class="r">
