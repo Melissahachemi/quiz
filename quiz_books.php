@@ -20,6 +20,7 @@ mysqli_close($conn);
 </head>
 <body>
 
+<p data-time-limit="<?php echo $temps_limite; ?>">Temps restant : <span id="timer"></span> secondes</p>
 
 <form id="quiz-form" action="traitement_quiz.php" method="post">
 

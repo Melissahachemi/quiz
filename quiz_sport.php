@@ -14,45 +14,47 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="quiz_style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="quiz_style.css">
+    </head>
+    <body>
+    <p data-time-limit="<?php echo $temps_limite; ?>">Temps restant : <span id="timer"></span> secondes</p>
 
-<form id="quiz-form" action="traitement_quiz.php" method="post">
 
-    <h1>Quiz Sport </h1>
+    <form id="quiz-form" action="traitement_quiz.php" method="post">
 
-    <?php foreach ($questions as $index => $question): ?>
-        <div class="question" id="question<?php echo $index; ?>" style="display:<?php echo ($index == 0) ? 'block' : 'none'; ?>;">
-            <p><?php echo htmlspecialchars($question['question']); ?></p>
-            <div class="reponses">
-                <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse1']); ?>" required> <?php echo htmlspecialchars($question['reponse1']); ?></label>
-                <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse2']); ?>" required> <?php echo htmlspecialchars($question['reponse2']); ?></label>
-                <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse3']); ?>" required> <?php echo htmlspecialchars($question['reponse3']); ?></label>
-                <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse4']); ?>" required> <?php echo htmlspecialchars($question['reponse4']); ?></label>
+        <h1>Quiz Sport </h1>
+
+        <?php foreach ($questions as $index => $question): ?>
+            <div class="question" id="question<?php echo $index; ?>" style="display:<?php echo ($index == 0) ? 'block' : 'none'; ?>;">
+                <p><?php echo htmlspecialchars($question['question']); ?></p>
+                <div class="reponses">
+                    <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse1']); ?>" required> <?php echo htmlspecialchars($question['reponse1']); ?></label>
+                    <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse2']); ?>" required> <?php echo htmlspecialchars($question['reponse2']); ?></label>
+                    <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse3']); ?>" required> <?php echo htmlspecialchars($question['reponse3']); ?></label>
+                    <label><input type="radio" name="reponse<?php echo $index; ?>" value="<?php echo htmlspecialchars($question['reponse4']); ?>" required> <?php echo htmlspecialchars($question['reponse4']); ?></label>
+                </div>
+
+                <div class="navigation-buttons">
+                    <?php if ($index > 0): ?>
+                        <button type="button" class="prev-btn" onclick="showPreviousQuestion(<?php echo $index; ?>)">Précédent</button>
+                    <?php endif; ?>
+
+                    <?php if ($index < count($questions) - 1): ?>
+                        <button type="button" class="next-btn" onclick="showNextQuestion(<?php echo $index; ?>)">Suivant</button>
+                    <?php else: ?>
+                        <button type="submit">Terminer le Quiz</button>
+                    <?php endif; ?>
+                </div>
             </div>
+        <?php endforeach; ?>
 
-            <div class="navigation-buttons">
-                <?php if ($index > 0): ?>
-                    <button type="button" class="prev-btn" onclick="showPreviousQuestion(<?php echo $index; ?>)">Précédent</button>
-                <?php endif; ?>
+        <input type="hidden" name="categorie" value="<?php echo $categorie; ?>">
 
-                <?php if ($index < count($questions) - 1): ?>
-                    <button type="button" class="next-btn" onclick="showNextQuestion(<?php echo $index; ?>)">Suivant</button>
-                <?php else: ?>
-                    <button type="submit">Terminer le Quiz</button>
-                <?php endif; ?>
-            </div>
-        </div>
-    <?php endforeach; ?>
+    </form>
 
-    <input type="hidden" name="categorie" value="<?php echo $categorie; ?>">
+    <script src="quiz_script.js"></script>
 
-</form>
-
-<script src="quiz_script.js"></script>
-
-</body>
+    </body>
 </html>
