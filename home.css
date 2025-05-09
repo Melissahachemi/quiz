@@ -62,27 +62,27 @@ body {
   }
 
 
-  #deconnection{
-    background-color: #f4dada ;
-    color: black;
-    cursor: pointer;
-    border:1px solide #a877b6; 
-    border-radius: 2px;
-    height: auto;
-    width: 200px;
-    text-align: center;
-  }
-  #deconnection:hover{
-    background-color: #8c3473 ;
-    color: black;
-    cursor: pointer;
-    border:1px solide #a877b6; 
-    border-radius: 2px;
-    height: auto;
-    width: 200px;
-    text-align: center;
-    transform: scale(1.08);  
-  }
+/* Style du bouton de déconnexion */
+#lg{
+  text-align: center;
+}
+.logout-button {
+  background-color:#a877b6;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.logout-button:hover {
+  background-color: #d12182;
+  transform: scale(1.05);
+}
   
   /* Responsive pour téléphone */
   @media (max-width: 768px) {
