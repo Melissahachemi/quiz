@@ -16,8 +16,8 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 
 <div class="home-container">
-  <h1 class="welcome-title">Bienvenue sur MYqwiz 🎉</h1>
-  <p class="welcome-subtitle">Choisissez votre catégorie de quiz :</p>
+  <h1 class="welcome-title">Nouvelle partie 🎉</h1>
+  <p class="welcome-subtitle">Choisissez votre catégorie</p>
 
   <div class="cards-container">
     <a href="quiz_sport.php" class="card">

@@ -23,6 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Connexion réussie
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            
+            // Mettre à jour le statut en ligne
+            $update_sql = "UPDATE users SET online = 1 WHERE id = ?";
+            $update_stmt = mysqli_prepare($conn, $update_sql);
+            mysqli_stmt_bind_param($update_stmt, "i", $user['id']);
+            mysqli_stmt_execute($update_stmt);
+            
             header('Location: dashboard.php?login_success=1');
             exit();
         } else {

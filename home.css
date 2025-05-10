@@ -3,38 +3,68 @@ body {
     background-color: #A7D1EB;
     margin: 0;
     padding: 0;
-  }
-  
-  .home-container {
+}
+
+.home-container {
     text-align: center;
     padding: 50px 20px;
-  }
-  
-  .welcome-title {
+}
+
+.welcome-title {
     font-size: 3em;
     color: #362121;
     margin-bottom: 10px;
-  }
-  
-  .welcome-subtitle {
+}
+
+.welcome-subtitle {
     font-size: 1.5em;
     color: #555;
-    margin-bottom: 40px;
-  }
-  
-  .cards-container {
+    margin-bottom: 30px; /* Réduit la marge pour faire de la place aux boutons */
+}
+
+/* Style pour la section de sélection du mode de jeu */
+.game-mode-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px; /* Ajoute de l'espace avant les cartes */
+}
+
+.game-mode-selection button {
+    padding: 12px 25px; /* Ajuste le padding pour une taille appropriée */
+    font-size: 1.1em;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.game-mode-selection button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.game-mode-selection button.selected {
+    background-color: #a877b6;
+    color: white;
+}
+
+.cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 0; /* Supprime la marge supérieure superflue */
     padding: 0 20px;
-  }
-  
-  /* Style des cartes */
-  .card {
+}
+
+/* Style des cartes */
+.card {
     background-color: #f4dada;
     border-radius: 15px;
-    height: 200px;
+    height: 180px; /* Réduit légèrement la hauteur des cartes */
     padding: 20px;
     text-decoration: none;
     color: #333;
@@ -44,49 +74,56 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-10px);
     background-color: #a877b6;
     color: white;
-  }
-  
-  .card h2 {
-    margin-bottom: 15px;
-    font-size: 1.8em;
-  }
-  
-  .card p {
-    font-size: 1.1em;
-  }
+}
+
+.card h2 {
+    margin-bottom: 10px; /* Réduit la marge sous le titre */
+    font-size: 1.6em; /* Réduit légèrement la taille du titre */
+}
+
+.card p {
+    font-size: 1em; /* Réduit légèrement la taille du paragraphe */
+}
 
 
 /* Style du bouton de déconnexion */
 #lg{
-  text-align: center;
+    text-align: center;
+    margin-top: 30px; /* Ajoute de l'espace entre les cartes et le bouton */
 }
 .logout-button {
-  background-color:#a877b6;
-  color: white;
-  border: 0;
-  border-radius: 12px;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: auto;
+    background-color:#a877b6;
+    color: white;
+    border: 0;
+    border-radius: 12px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: auto;
 }
 
 .logout-button:hover {
-  background-color: #d12182;
-  transform: scale(1.05);
+    background-color: #d12182;
+    transform: scale(1.05);
 }
-  
-  /* Responsive pour téléphone */
-  @media (max-width: 768px) {
+
+/* Responsive pour téléphone */
+@media (max-width: 768px) {
     .cards-container {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-  }
+
+    .game-mode-selection {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}

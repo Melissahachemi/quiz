@@ -75,14 +75,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px; /* Réduit l'espacement général pour compenser le nouveau groupe */
 }
 
 /* Style du groupe de boutons */
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px; /* Réduit l'espacement entre les groupes de boutons */
     max-width: 300px;
     width: 100%;
 }
@@ -97,6 +97,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -107,28 +108,104 @@ body {
     transform: scale(1.05);
 }
 
-/* Style de la section "Amis en ligne" */
-.amis-en-ligne {
-    margin-top: 20px;
-    cursor: pointer;
-    background-color:#f4dada;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Style pour le conteneur Best Score */
+#best-score-container,
+#classement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Style optionnel pour la section du meilleur score */
+#best-score-display {
+    background-color: #e0f7fa; /* Couleur de fond claire */
+    border-radius: 10px;
+    padding: 10px; /* Réduit le padding pour un affichage plus compact */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px; /* Réduit la marge en bas */
+    font-size: 0.9em; /* Réduit la taille de la police */
+}
+
+#best-score-display h3 {
+    color: #00838f; /* Couleur du titre */
+    margin-top: 0;
+    font-size: 1.1em; /* Réduit la taille du titre */
+}
+
+#best-score-display p {
+    margin-bottom: 5px; /* Réduit la marge des paragraphes */
+}
+
+#best-score-display p strong {
+    color: #4db6ac; /* Couleur accentuée pour les valeurs */
+}
+
+/* Style de la section du classement */
+#classement-section {
+    background-color: #f9fbe7; /* Couleur de fond claire */
+    border-radius: 10px;
+    padding: 10px; /* Réduit le padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 5px; /* Réduit la marge en bas */
+    font-size: 0.9em; /* Réduit la taille de la police */
 }
 
-.amis-en-ligne p {
-    font-size: 1.1em;
-    color: #362121;
+#classement-section h3 {
+    color: #8bc34a; /* Couleur du titre */
+    margin-top: 0;
+    font-size: 1.1em; /* Réduit la taille du titre */
+}
+
+#classement-liste {
+    list-style-type: decimal; /* Afficher les numéros de classement */
+    padding-left: 15px; /* Réduit le padding à gauche */
+    text-align: left;
+    margin-top: 5px; /* Réduit la marge en haut */
+}
+
+#classement-liste li {
+    padding: 5px 0; /* Réduit le padding vertical */
+    font-size: 1em; /* Réduit légèrement la taille de la police */
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+#classement-liste li:last-child {
+    border-bottom: none;
+}
+
+#classement-liste li strong {
     font-weight: bold;
-    margin: 0;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    color: #009688; /* Couleur accentuée pour le score */
 }
 
-.amis-en-ligne:hover {
-    background-color: #a877b6;
-    transform: scale(1.08);
+/* Style pour le groupe de boutons Amis */
+.amis-group {
+    display: flex;
+    gap: 10px; /* Espacement entre les boutons Amis */
+    width: 100%; /* Prendre toute la largeur disponible */
+    max-width: 300px; /* Conserver la largeur maximale */
+}
+
+/* Style pour les petits boutons (Amis et Ajouter des amis) */
+.small-btn {
+    padding: 10px 15px; /* Réduire le padding vertical et horizontal */
+    font-size: 1em; /* Réduire la taille de la police */
+    flex-grow: 1; /* Permettre aux boutons de grandir pour occuper l'espace */
+    background-color: #a877b6; /* Couleur de fond des boutons Amis */
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.small-btn:hover {
+    background-color: #d12182;
+    transform: scale(1.05);
 }
 
 /* Style du bouton de déconnexion */
@@ -194,6 +271,9 @@ body {
     font-size: 1.2em;
     color: #333;
     border-bottom: 1px solid #ddd;
+    display: flex; /* Pour aligner le texte et le bouton */
+    justify-content: space-between; /* Espacer le texte et le bouton */
+    align-items: center; /* Les centrer verticalement */
 }
 
 .modal-content ul li:last-child {
@@ -221,55 +301,35 @@ textarea{
     resize: none;
 }
 
-/* Style optionnel pour la section du meilleur score */
-#best-score-display {
-    background-color: #e0f7fa; /* Couleur de fond claire */
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Style pour l'indicateur de statut des amis */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Pour créer un cercle */
+    margin-right: 8px;
 }
 
-#best-score-display h3 {
-    color: #00838f; /* Couleur du titre */
-    margin-top: 0;
+.status-indicator.online {
+    background-color: green;
 }
 
-#best-score-display p strong {
-    color: #4db6ac; /* Couleur accentuée pour les valeurs */
+.status-indicator.offline {
+    background-color: red;
 }
 
-/* Style de la section du classement */
-#classement-section {
-    background-color: #f9fbe7; /* Couleur de fond claire */
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* Style du bouton "Ajouter" dans la modal d'ajout d'amis */
+.ajouter-ami-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
 }
 
-#classement-section h3 {
-    color: #8bc34a; /* Couleur du titre */
-    margin-top: 0;
-}
-
-#classement-liste {
-    list-style-type: decimal; /* Afficher les numéros de classement */
-    padding-left: 20px;
-    text-align: left;
-}
-
-#classement-liste li {
-    padding: 8px 0;
-    font-size: 1.1em;
-    color: #333;
-    border-bottom: 1px solid #eee;
-}
-
-#classement-liste li:last-child {
-    border-bottom: none;
-}
-
-#classement-liste li strong {
-    font-weight: bold;
-    color: #009688; /* Couleur accentuée pour le score */
+.ajouter-ami-btn:hover {
+    background-color: #1e7e34;
 }
