@@ -324,15 +324,17 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `Bio` varchar(50) DEFAULT NULL
+  `online` int(2) DEFAULT 0,
+  `attente` int(2) DEFAULT 0,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `Bio`) VALUES
-(1, 'meli', 'meli@gmail.com', '$2y$10$pDwMU7umoE7XdDq1iS7aWeyy70glJj6NMeXSnjEaCFJk2jRvIV20K', '2025-05-04 19:00:50', NULL),
-(2, 'alice', 'alice@gmail.com', '$2y$10$TZNAD6KyOESwVIN5p80DYuiY2R6lqAUMTwQAMhzjpjwEWVuM.1bqK', '2025-05-04 20:54:36', NULL);
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `Bio`,`online`,`attente`) VALUES
+(1, 'meli', 'meli@gmail.com', '$2y$10$pDwMU7umoE7XdDq1iS7aWeyy70glJj6NMeXSnjEaCFJk2jRvIV20K', '2025-05-04 19:00:50', NULL,0,0),
+(2, 'alice', 'alice@gmail.com', '$2y$10$TZNAD6KyOESwVIN5p80DYuiY2R6lqAUMTwQAMhzjpjwEWVuM.1bqK', '2025-05-04 20:54:36', NULL,0,0);
 
 --
 -- Index pour les tables déchargées
@@ -432,3 +434,11 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `chat_messages` (
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `sender_id` INT(11) UNSIGNED NOT NULL,
+  `receiver_id` INT(11) UNSIGNED NOT NULL,
+  `message` TEXT NOT NULL,
+  `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

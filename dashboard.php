@@ -130,6 +130,9 @@
         </div>
     </div>
 
+    <div class="dashboard-container">
+        <div id="chat-area"></div>
+    </div>  
     <script src="dashboard.js"></script>
 </body>
 </html>

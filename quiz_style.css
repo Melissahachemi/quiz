@@ -106,13 +106,13 @@ p#timer {
     margin-bottom: 5px; /* Espacement entre les labels */
 }
 
-.navigation-buttons {
+.navigation-buttons, start-btn {
     display: flex;
     gap: 10px; /* Espacement entre les boutons */
     margin-top: 15px;
 }
 
-.prev-btn, .next-btn, button[type="submit"] {
+.prev-btn, .next-btn, button[type="submit"], start-btn {
     margin-left: 10px;
     padding: 5px 10px;
     background-color:  #f4dada;
@@ -122,10 +122,199 @@ p#timer {
 
 }
 
-.prev-btn:hover, .next-btn:hover, button[type="submit"]:hover {
+.prev-btn:hover, .next-btn:hover, button[type="submit"]:hover, start-btn:hover {
     background-color: #ddd;
     color: black;
     transform: scale(1.08);
     
 
 }
+
+/* Styles pour le mode VS */
+.opponent-progress {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 20px;
+    background: #28a745;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+/* Styles pour la salle d'attente */
+.waiting-room-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f4dada;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.waiting-room-title {
+    color: #a877b6;
+    margin-bottom: 1.5rem;
+}
+
+.room-code-container {
+    background-color: #a877b6;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.room-code {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.waiting-message {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    color: #362121;
+}
+
+.start-btn {
+    background-color: #a877b6;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 3em;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.start-btn:hover {
+    background-color: #8a5a9b;
+    transform: scale(1.05);
+}
+
+.player-list {
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.player-list h3 {
+    color: #362121;
+    border-bottom: 1px solid #a877b6;
+    padding-bottom: 0.5rem;
+}
+
+.player-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.player-list li {
+    padding: 0.5rem;
+    margin: 0.3rem 0;
+    background-color: rgba(168, 119, 182, 0.1);
+    border-radius: 4px;
+}
+
+/* Style des boutons (cohérent avec le dashboard) */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #a877b6;
+    color: white;
+    border: none;
+    border-radius: 3em;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+}
+
+.btn:hover {
+    background-color: #8a5a9b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton Commencer spécifique */
+.start-btn {
+    background: linear-gradient(135deg, #a877b6 0%, #6d4b7a 100%);
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    margin-top: 2rem;
+}
+
+.start-btn:hover {
+    background: linear-gradient(135deg, #8a5a9b 0%, #5a3a65 100%);
+}
+
+/* Animation de pulse pour attirer l'attention */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Style pour le compte à rebours */
+.countdown {
+    font-size: 1.1rem;
+    color: #a877b6;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.countdown span {
+    color: #362121;
+}
+
+/* Bouton Annuler */
+.cancel-btn {
+    background-color: #f4dada;
+    color: #a877b6;
+    border: 2px solid #a877b6;
+    margin-top: 1rem;
+}
+
+.cancel-btn:hover {
+    background-color: #f0c6c6;
+}
+
+
+        .matchmaking-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        .loader {
+            border: 5px solid #f4dada;
+            border-top: 5px solid #a877b6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }

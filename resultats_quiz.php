@@ -44,12 +44,7 @@ mysqli_close($conn);
     
 </div>
 <div class="footer">
-    <a class="f" href="home.php">Retour à l'accueil</a>
-    <div class="extras amis-en-ligne" id="amis-en-ligne" class="f">
-        <p>
-            <strong>👥 Amis en ligne :</strong> <span id="nbr-en-ligne">3</span>
-        </p>
-    </div>
+    <a class="f" href="home.php">Rejouer</a>
     <form action="logout.php" method="post" class="f">
         <button type="submit" class="logout-button">Déconnexion</button>
 

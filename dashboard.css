@@ -1,33 +1,36 @@
-/* Style général du body */
+/* Styles globaux */
 body {
     font-family: 'Comfortaa', sans-serif;
     background-color: #A7D1EB;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Header, Content, Footer (le footer est implicite ici) */
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    color: #362121; /* Couleur de texte principale */
+    color: #362121;
 }
 
-/* Style de l'en-tête (header) */
+textarea {
+    resize: none;
+}
+
+/* En-tête */
 .dashboard-header {
     background-color: #f4dada;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr auto auto; /* Titre, Bio, Logout */
+    grid-template-columns: 1fr auto auto;
     align-items: center;
     gap: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .dashboard-header .left h1 {
     margin: 0;
     font-size: 2em;
     color: #362121;
 }
 
-/* Style de la section de la biographie */
+/* Bio */
 .bio-section {
     background-color: #fff;
     padding: 15px;
@@ -35,14 +38,12 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: right;
 }
-
 .bio-section h3 {
     margin-top: 0;
+    margin-bottom: 10px;
     font-size: 1.2em;
     color: #362121;
-    margin-bottom: 10px;
 }
-
 .bio-section textarea {
     width: 100%;
     padding: 8px;
@@ -52,7 +53,6 @@ body {
     box-sizing: border-box;
     font-family: 'Comfortaa', sans-serif;
 }
-
 .bio-section button#btn_b {
     background-color: #a877b6;
     color: white;
@@ -63,32 +63,25 @@ body {
     font-size: 1em;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .bio-section button#btn_b:hover {
     background-color: #d12182;
     transform: scale(1.05);
 }
 
-/* Style du conteneur principal */
+/* Contenu principal */
 .dashboard-container {
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Réduit l'espacement général pour compenser le nouveau groupe */
+    gap: 20px;
 }
 
-/* Style du groupe de boutons */
-.button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Réduit l'espacement entre les groupes de boutons */
-    max-width: 300px;
-    width: 100%;
-}
-
-/* Style des boutons principaux */
+/* Boutons principaux */
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px 25px;
     font-size: 1.3em;
     background-color: #f4dada;
@@ -97,118 +90,355 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
 .btn:hover {
     background-color: #a877b6;
     color: white;
     transform: scale(1.05);
 }
 
-/* Style pour le conteneur Best Score */
-#best-score-container,
-#classement-container {
+/* Groupes de boutons */
+.button-group, .amis-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 15px;
     width: 100%;
     max-width: 300px;
+    flex-direction: column;
 }
-
-/* Style optionnel pour la section du meilleur score */
-#best-score-display {
-    background-color: #e0f7fa; /* Couleur de fond claire */
-    border-radius: 10px;
-    padding: 10px; /* Réduit le padding pour un affichage plus compact */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px; /* Réduit la marge en bas */
-    font-size: 0.9em; /* Réduit la taille de la police */
-}
-
-#best-score-display h3 {
-    color: #00838f; /* Couleur du titre */
-    margin-top: 0;
-    font-size: 1.1em; /* Réduit la taille du titre */
-}
-
-#best-score-display p {
-    margin-bottom: 5px; /* Réduit la marge des paragraphes */
-}
-
-#best-score-display p strong {
-    color: #4db6ac; /* Couleur accentuée pour les valeurs */
-}
-
-/* Style de la section du classement */
-#classement-section {
-    background-color: #f9fbe7; /* Couleur de fond claire */
-    border-radius: 10px;
-    padding: 10px; /* Réduit le padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 5px; /* Réduit la marge en bas */
-    font-size: 0.9em; /* Réduit la taille de la police */
-}
-
-#classement-section h3 {
-    color: #8bc34a; /* Couleur du titre */
-    margin-top: 0;
-    font-size: 1.1em; /* Réduit la taille du titre */
-}
-
-#classement-liste {
-    list-style-type: decimal; /* Afficher les numéros de classement */
-    padding-left: 15px; /* Réduit le padding à gauche */
-    text-align: left;
-    margin-top: 5px; /* Réduit la marge en haut */
-}
-
-#classement-liste li {
-    padding: 5px 0; /* Réduit le padding vertical */
-    font-size: 1em; /* Réduit légèrement la taille de la police */
-    color: #333;
-    border-bottom: 1px solid #eee;
-}
-
-#classement-liste li:last-child {
-    border-bottom: none;
-}
-
-#classement-liste li strong {
-    font-weight: bold;
-    color: #009688; /* Couleur accentuée pour le score */
-}
-
-/* Style pour le groupe de boutons Amis */
 .amis-group {
-    display: flex;
-    gap: 10px; /* Espacement entre les boutons Amis */
-    width: 100%; /* Prendre toute la largeur disponible */
-    max-width: 300px; /* Conserver la largeur maximale */
+    flex-direction: row;
+    gap: 10px;
 }
 
-/* Style pour les petits boutons (Amis et Ajouter des amis) */
+/* Petits boutons */
 .small-btn {
-    padding: 10px 15px; /* Réduire le padding vertical et horizontal */
-    font-size: 1em; /* Réduire la taille de la police */
-    flex-grow: 1; /* Permettre aux boutons de grandir pour occuper l'espace */
-    background-color: #a877b6; /* Couleur de fond des boutons Amis */
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #a877b6;
     color: white;
     border: 0;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .small-btn:hover {
     background-color: #d12182;
     transform: scale(1.05);
 }
 
-/* Style du bouton de déconnexion */
+/* Best Score */
+#best-score-container, #classement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+#best-score-display {
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+#best-score-display h3 {
+    color: #00838f;
+    margin-top: 0;
+    font-size: 1.1em;
+}
+#best-score-display p {
+    margin-bottom: 5px;
+}
+#best-score-display p strong {
+    color: #4db6ac;
+    font-weight: bold;
+}
+
+/* Classement */
+#classement-section {
+    background-color: #f9fbe7;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+#classement-section h3 {
+    color: #8bc34a;
+    margin-top: 0;
+    font-size: 1.1em;
+}
+#classement-liste {
+    list-style-type: decimal;
+    padding-left: 15px;
+    text-align: left;
+    margin-top: 5px;
+}
+#classement-liste li {
+    padding: 5px 0;
+    font-size: 1em;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+#classement-liste li:last-child {
+    border-bottom: none;
+}
+#classement-liste li strong {
+    font-weight: bold;
+    color: #009688;
+}
+
+/* Modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 50px;
+}
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.modal-content h2 {
+    color: #362121;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+.modal-content ul li {
+    padding: 10px;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-content ul li:last-child {
+    border-bottom: none;
+}
+.close {
+    color: #aaa;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Statut ami */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.status-indicator.online {
+    background-color: green;
+}
+.status-indicator.offline {
+    background-color: red;
+}
+
+/* Bouton ajouter ami */
+.ajouter-ami-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+.ajouter-ami-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* Mini chat box - nouveau style harmonisé */
+.mini-chat-box {
+    background-color: #f4dada; /* Rose pâle comme l'en-tête */
+    border: 1px solid #d1a7b6; /* Bordure violet clair */
+    border-radius: 12px; /* Coins arrondis comme les autres éléments */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre plus douce */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Comfortaa', sans-serif; /* Même police que le reste */
+    cursor: grab;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s ease;
+}
+
+/* En-tête chat - nouveau style */
+.chat-header {
+    background-color: #a877b6; /* Violet comme les boutons */
+    color: white; /* Texte blanc */
+    padding: 12px 15px; /* Un peu plus de padding */
+    border-bottom: 1px solid #8a5a9b;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1em; /* Taille de police légèrement plus grande */
+    cursor: grab;
+}
+
+/* Messages chat - nouveau style */
+.chat-messages {
+    padding: 12px 15px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 250px; /* Un peu plus grand */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Plus d'espace entre les messages */
+    background-color: rgba(255, 255, 255, 0.7); /* Fond blanc légèrement transparent */
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #e0c8e8;
+    font-size: 0.95em;
+    word-break: break-word;
+    align-self: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    max-width: 80%;
+    transition: transform 0.2s ease;
+}
+
+.message:hover {
+    transform: translateY(-2px); /* Effet de survol léger */
+}
+
+.message.sent {
+    background-color: #d1a7eb; /* Violet très clair */
+    border: 1px solid #b58fd1;
+    align-self: flex-end;
+    color: #362121; /* Texte sombre pour contraste */
+}
+
+.message strong {
+    font-weight: bold;
+    color: #5e3a71; /* Violet foncé */
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.9em;
+}
+
+.message.sent strong {
+    color: #4a2d5a; /* Violet encore plus foncé */
+}
+
+.message small {
+    color: #7a7a7a;
+    font-size: 0.75em;
+    margin-left: 5px;
+    display: block;
+    text-align: right;
+}
+
+/* Input chat - nouveau style */
+.chat-input {
+    display: flex;
+    padding: 10px 12px;
+    border-top: 1px solid #d1a7b6;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #f4dada; /* Rose pâle comme l'en-tête */
+    gap: 8px; /* Espace entre input et bouton */
+}
+
+.chat-input input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid #d1a7b6;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: border-color 0.3s ease;
+}
+
+.chat-input input[type="text"]:focus {
+    border-color: #a877b6;
+    outline: none;
+}
+
+.chat-input button {
+    background-color: #a877b6; /* Violet comme les boutons */
+    color: white;
+    border: none;
+    padding: 8px 9px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-family: 'Comfortaa', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input button:hover {
+    background-color: #8a5a9b; /* Violet plus foncé au survol */
+    transform: scale(1.02);
+}
+
+/* Bouton fermer chat - nouveau style */
+.close-chat {
+    cursor: pointer;
+    font-size: 1.3em;
+    color: white;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.close-chat:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Bouton logout (position fixe) */
 .logout-button {
     background-color:#a877b6;
     color: white;
@@ -223,113 +453,53 @@ body {
     left: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .logout-button:hover {
     background-color: #d12182;
     transform: scale(1.05);
 }
 
-/* Style de la modale */
-.modal {
-    display: none; /* Commence cachée */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    padding-top: 50px; /* Ajoute de l'espace au dessus */
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.modal-content h2 {
-    color: #362121;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-.modal-content ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.modal-content ul li {
-    padding: 10px;
-    font-size: 1.2em;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-    display: flex; /* Pour aligner le texte et le bouton */
-    justify-content: space-between; /* Espacer le texte et le bouton */
-    align-items: center; /* Les centrer verticalement */
-}
-
-.modal-content ul li:last-child {
-    border-bottom: none; /* Retirer la bordure du dernier élément */
-}
-
-/* Style du bouton de fermeture de la modale */
-.close {
-    color: #aaa;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-}
-
-textarea{
-    resize: none;
-}
-
-/* Style pour l'indicateur de statut des amis */
-.status-indicator {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%; /* Pour créer un cercle */
-    margin-right: 8px;
-}
-
-.status-indicator.online {
-    background-color: green;
-}
-
-.status-indicator.offline {
-    background-color: red;
-}
-
-/* Style du bouton "Ajouter" dans la modal d'ajout d'amis */
-.ajouter-ami-btn {
-    background-color: #28a745;
+/* Bouton démarrer chat dans liste amis - version compacte */
+.start-chat-btn {
+    all : unset; /* Supprime tous les styles par défaut */
+    width: 80px; /* Largeur fixe carrée */
+    height: 25px; /* Hauteur égale à la largeur */
+    min-width: 24px; /* Empêche la réduction */
+    padding: 0 20px; /* Supprime tout padding */
+    margin-left: 5px;
+    
+    /* Style visuel */
+    background-color: #a877b6;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 6px; /* Coins légèrement arrondis */
     cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
+    
+    /* Centrage du contenu */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Animation */
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    /* Utilisation d'une icône au lieu de texte */
+    font-size: 12px;
+    line-height: 1;
 }
 
-.ajouter-ami-btn:hover {
-    background-color: #1e7e34;
+.start-chat-btn:hover {
+    background-color: #8a5a9b; /* Violet légèrement plus foncé au survol */
+    transform: scale(1.05);
+}
+
+.message-alert {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-3px); }
+    40%, 60% { transform: translateX(3px); }
 }
