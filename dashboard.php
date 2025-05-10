@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Tableau de bord - MYqwiz</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -11,7 +12,6 @@
         require_once 'db_connect.php';
         $user_id = $_SESSION['user_id'];
 
-        // Récupérer le nom d'utilisateur
         $query_username = "SELECT username FROM users WHERE id = ?";
         $stmt_username = mysqli_prepare($conn, $query_username);
         mysqli_stmt_bind_param($stmt_username, "i", $user_id);
@@ -20,7 +20,6 @@
         mysqli_stmt_fetch($stmt_username);
         mysqli_stmt_close($stmt_username);
 
-        // Récupérer la bio actuelle de l'utilisateur
         $query_bio = "SELECT bio FROM users WHERE id = ?";
         $stmt_bio = mysqli_prepare($conn, $query_bio);
         mysqli_stmt_bind_param($stmt_bio, "i", $user_id);
@@ -49,8 +48,19 @@
     <div class="dashboard-container">
         <div class="button-group">
             <a href="home.php" class="btn">🎮 Lancer un quiz</a>
-            <span class="btn">📊 Best Score</span>
-            <span class="btn">🏆 Classement</span>
+            <button class="btn" id="best-score-btn">📊 Best Score</button>
+            <button class="btn" id="classement-btn">🏆 Classement</button>
+        </div>
+
+        <div id="best-score-display" class="extras" style="display:none; text-align: center; margin-top: 20px;">
+            <h3>🏆 Votre Meilleur Score</h3>
+            <p>Score : <strong id="best-score-value"></strong></p>
+            <p>Catégorie : <strong id="best-score-category"></strong></p>
+        </div>
+
+        <div id="classement-section" class="extras" style="display:none; margin-top: 20px;">
+            <h3>🏆 Classement des Meilleurs Scores</h3>
+            <ol id="classement-liste"></ol>
         </div>
 
         <div class="extras amis-en-ligne" id="amis-en-ligne">

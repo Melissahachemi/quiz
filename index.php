@@ -42,7 +42,7 @@
             <button type="submit">Se connecter</button>
         </form>
         <div class="signup-link">
-            Pas encore de compte ? <a href="signup.php">S'inscrire</a>
+            Pas encore de compte ? <a href="signUp.php">S'inscrire</a>
         </div>
         </div>
     </div>

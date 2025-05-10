@@ -1,34 +1,119 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const amisEnLigne = ["Alice", "Bob", "Charlie"];  // Exemple d'amis en ligne
-    const amisEl = document.getElementById("amis-en-ligne");  // L'élément cliquable
-    const modal = document.getElementById("modal-amis");  // La modale à afficher
-    const closeModal = document.getElementById("close-modal");  // Bouton de fermeture de la modale
-    const listeAmis = document.getElementById("liste-amis");  // Liste des amis dans la modale
-  
-    // Ajouter un écouteur d'événements pour l'élément "Amis en ligne"
-    if (amisEl) {
-      amisEl.addEventListener("click", function () {
-        // Réinitialiser la liste des amis
-        listeAmis.innerHTML = "";
-        amisEnLigne.forEach(ami => {
-          const li = document.createElement("li");
-          li.textContent = ami;
-          listeAmis.appendChild(li);
+$(document).ready(function() {
+    // Amis en ligne
+    const amisEnLigne = ["Alice", "Bob", "Charlie"];
+    const $amisEl = $("#amis-en-ligne");
+    const $modal = $("#modal-amis");
+    const $closeModal = $("#close-modal");
+    const $listeAmis = $("#liste-amis");
+
+    if ($amisEl.length) {
+        $amisEl.on("click", function() {
+            $listeAmis.empty();
+            $.each(amisEnLigne, function(index, ami) {
+                $listeAmis.append($("<li>").text(ami));
+            });
+            $modal.css("display", "block");
         });
-        // Afficher la modale
-        modal.style.display = "block";
-      });
     }
-  
-    // Ajouter un écouteur d'événements pour fermer la modale
-    closeModal.addEventListener("click", function () {
-      modal.style.display = "none";
+
+    $closeModal.on("click", function() {
+        $modal.css("display", "none");
     });
-  
-    // Fermer la modale si on clique en dehors de celle-ci
-    window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
+
+    $(window).on("click", function(event) {
+        if (event.target === $modal[0]) {
+            $modal.css("display", "none");
+        }
     });
-  });
+
+    // Best Score
+    const $bestScoreDisplay = $("#best-score-display");
+    const $bestScoreValue = $("#best-score-value");
+    const $bestScoreCategory = $("#best-score-category");
+
+    $("#best-score-btn").on("click", function() {
+        $.ajax({
+            url: "get_best_score.php",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                if (data.hasScore) {
+                    const categories = {
+                        'f': 'Films et Séries',
+                        's': 'Sport',
+                        'l': 'Littérature',
+                        'm': 'Musique'
+                    };
+                    $bestScoreValue.text(data.score);
+                    $bestScoreCategory.text(categories[data.categorie] || 'Catégorie inconnue');
+                    $bestScoreDisplay.slideDown(300).delay(3000).slideUp(300);
+                } else {
+                    alert("Vous n'avez pas encore joué à un quiz !");
+                }
+            },
+            error: function() {
+                alert("Erreur lors de la récupération du score");
+            }
+        });
+    });
+
+    // Classement avec fermeture automatique
+    const $classementSection = $("#classement-section");
+    const $classementListe = $("#classement-liste");
+    let classementTimeout;
+
+    $("#classement-btn").on("click", function() {
+        // Annuler le timeout précédent s'il existe
+        clearTimeout(classementTimeout);
+        
+        // Si le classement est déjà visible, on le cache immédiatement
+        if ($classementSection.is(":visible")) {
+            $classementSection.slideUp(300);
+            return;
+        }
+        
+        $classementSection.slideDown(300);
+        $classementListe.empty();
+
+        $.ajax({
+            url: "get_classement.php",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                if (data.error) {
+                    alert(data.error);
+                    $classementSection.slideUp(300);
+                    return;
+                }
+
+                if (data.classement && data.classement.length > 0) {
+                    $.each(data.classement, function(index, item) {
+                        $classementListe.append(
+                            `<li>${item.username} - Score: <strong>${item.meilleur_score}</strong></li>`
+                        );
+                    });
+                } else {
+                    $classementListe.append("<li>Aucun score enregistré</li>");
+                }
+                
+                // Fermer automatiquement après 3 secondes (3000ms)
+                classementTimeout = setTimeout(function() {
+                    $classementSection.slideUp(300);
+                }, 3000);
+            },
+            error: function() {
+                alert("Erreur lors du chargement du classement");
+                $classementSection.slideUp(300);
+            }
+        });
+    });
+
+    // Fermer aussi si on clique en dehors
+    $(window).on("click", function(event) {
+        if ($classementSection.is(":visible") && 
+            !$(event.target).closest("#classement-section, #classement-btn").length) {
+            $classementSection.slideUp(300);
+            clearTimeout(classementTimeout);
+        }
+    });
+});
