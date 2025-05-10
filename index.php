@@ -23,7 +23,7 @@
                 echo '<p class="error-message">Email ou mot de passe incorrect.</p>';
             }elseif(isset($_GET['error'])&& $_GET['error']==='no_user'){
                 echo '<p class="error-message">Utilisateur existe pas ! creer un compte .</p>';
- 
+
 
             }
         ?>
