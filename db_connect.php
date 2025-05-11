@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'qwiz';
 $username = 'root';
-$password = 'vomounix23_';
+$password = '';
 
 // Connexion avec MySQLi en mode procédural
 $conn = mysqli_connect($host, $username, $password, $dbname);
