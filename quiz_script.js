@@ -1,3 +1,6 @@
+// script pour gérer le quiz
+// Gére le changement de questions et le timer
+
 const timerElement = document.getElementById('timer');
 const quizForm = document.getElementById('quiz-form');
 const timerContainer = document.querySelector('[data-time-limit]'); // Sélectionne l'élément avec l'attribut data-time-limit

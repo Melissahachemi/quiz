@@ -1,28 +1,27 @@
-<?php
-
-require_once 'quiz_common.php';
-
-$categorie = 'f'; // 'f' pour Films
-$questions = getQuestions($conn, $categorie, $nombre_questions);
-
-$_SESSION['quiz_questions'] = $questions;
-$_SESSION['quiz_start_time'] = time();
-$_SESSION['quiz_end_time'] = time() + $temps_limite;
-
-mysqli_close($conn);
-?>
-
+<!--Page de quiz sur les films et séries-->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="quiz_style.css">
+        <title>Quiz Films/Series</title>
     </head>
     <body>
+        <!-- Appel du script quiz_common.php pour la génération de questions et timer -->
+        <?php
+            require_once 'quiz_common.php';
+            $categorie = 'f'; // 'f' pour Films
+            $questions = getQuestions($conn, $categorie, $nombre_questions);
+
+            $_SESSION['quiz_questions'] = $questions;
+            $_SESSION['quiz_start_time'] = time();
+            $_SESSION['quiz_end_time'] = time() + $temps_limite;
+
+            mysqli_close($conn);
+        ?>
         <p data-time-limit="<?php echo $temps_limite; ?>">Temps restant : <span id="timer"></span> secondes</p>
 
         <form id="quiz-form" action="traitement_quiz.php" method="post">
-
             <h1>Quiz Films/Series</h1>
 
             <?php foreach ($questions as $index => $question): ?>
@@ -54,6 +53,5 @@ mysqli_close($conn);
         </form>
 
         <script src="quiz_script.js"></script>
-
     </body>
 </html>

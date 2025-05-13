@@ -1,21 +1,21 @@
-/* quiz_style.css */
+/* style du quiz */
 
 body {
     font-family: 'Comfortaa', sans-serif;
-    background-color: #A7D1EB;/* Couleur de fond claire, similaire au dashboard */
-    color: #333; /* Couleur de texte principale */
-    margin: 20px; /* Ajoute une marge autour du contenu */
+    background-color: #A7D1EB;
+    color: #333; 
+    margin: 20px; 
 }
 
 h1 {
-    color: #a877b6; /* Couleur d'accentuation, similaire au dashboard */
+    color: #a877b6;
     text-align: center;
     margin-bottom: 30px;
 }
 
 p#timer {
     font-size: 1.2em;
-    color: #151515; /* Couleur pour indiquer le temps */
+    color: #151515;
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
@@ -55,60 +55,23 @@ p#timer {
 .question input[type="radio"] {
     margin-right: 8px;
 }
-/* 
-.next-btn,
-#quiz-form button[type="submit"] {
-    background-color: #020912; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.next-btn:hover,
-#quiz-form button[type="submit"]:hover {
-    background-color: #7a99bb;
-}
-
-.next-btn {
-    margin-top: 15px;
-}
-
-#quiz-form button[type="submit"] {
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-} 
-*/
-
-/* Adaptation pour s'intégrer potentiellement dans une partie du dashboard */
-/* Si le quiz doit être intégré dans une section spécifique du dashboard, */
-/* vous pourriez avoir besoin d'ajuster les marges et la largeur max. */
-/* Par exemple: */
-/*.dashboard-section #quiz-form {
-    max-width: none; !* Enlever la largeur max si dans une section *!
-    margin: 20px 0;
-}*/
 
 
 .reponses {
-    display: grid; /* Utilisation de Grid pour un placement facile sur deux lignes */
-    grid-template-columns: auto auto; /* Deux colonnes de largeur automatique */
-    gap: 10px 20px; /* Espacement entre les lignes et les colonnes */
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 20px; 
     margin-bottom: 15px;
 }
 
 .reponses label {
-    display: block; /* Chaque label occupe une ligne dans sa colonne */
-    margin-bottom: 5px; /* Espacement entre les labels */
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 .navigation-buttons, start-btn {
     display: flex;
-    gap: 10px; /* Espacement entre les boutons */
+    gap: 10px; 
     margin-top: 15px;
 }
 
@@ -128,57 +91,6 @@ p#timer {
     transform: scale(1.08);
     
 
-}
-
-/* Styles pour le mode VS */
-.opponent-progress {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    height: 20px;
-    background: #28a745;
-    border-radius: 4px;
-    transition: width 0.5s ease;
-}
-
-/* Styles pour la salle d'attente */
-.waiting-room-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #f4dada;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.waiting-room-title {
-    color: #a877b6;
-    margin-bottom: 1.5rem;
-}
-
-.room-code-container {
-    background-color: #a877b6;
-    padding: 1rem;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-}
-
-.room-code {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    letter-spacing: 2px;
-}
-
-.waiting-message {
-    font-size: 1.1rem;
-    margin: 1rem 0;
-    color: #362121;
 }
 
 .start-btn {
@@ -221,7 +133,6 @@ p#timer {
     border-radius: 4px;
 }
 
-/* Style des boutons (cohérent avec le dashboard) */
 .btn {
     display: inline-block;
     padding: 12px 30px;

@@ -8,9 +8,13 @@
 </head>
 <body>
     <?php
+        // Démarrage ou reprise de la session
         session_start();
+        // Vérification si l'ID de l'utilisateur n'est pas défini dans la session
         if (!isset($_SESSION['user_id'])) {
+            // Redirection vers la page d'index si l'utilisateur n'est pas connecté
             header('Location: index.php');
+            // Arrêt de l'exécution du script
             exit();
         }
     ?>
@@ -30,7 +34,7 @@
             </a>
 
             <a href="quiz_music.php?mode=solo" class="card solo-play" data-category="music" data-mode="solo">
-                <h2>Musique </h2>
+                <h2>Musique</h2>
                 <p>Montre que tu es un vrai mélomane !</p>
             </a>
 
@@ -48,43 +52,5 @@
     <form action="logout.php" method="post" id="lg" style="margin-top: 20px;">
         <button type="submit" class="logout-button">Déconnexion</button>
     </form>
-    <script>
-        // Ce script n'est plus nécessaire pour la sélection du mode de jeu.
-        // Vous pouvez le supprimer si vous n'avez pas d'autres fonctionnalités dans home.js.
-        // Si vous le conservez, assurez-vous qu'il ne contient pas de code qui interfère
-        // avec la redirection directe vers le quiz solo.
-        // Par exemple, vous pourriez commenter ou supprimer les event listeners
-        // liés aux boutons de mode de jeu et aux clics sur les cartes.
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const playBtn = document.getElementById('play-btn');
-        //     const playOnlineBtn = document.getElementById('play-online-btn');
-        //     const themeSelectionTitle = document.querySelector('.theme-selection-title');
-        //     const cardsContainer = document.querySelector('.cards-container');
-        //     const soloPlayCards = document.querySelectorAll('.solo-play');
-
-        //     if (playBtn) {
-        //         playBtn.addEventListener('click', function() {
-        //             themeSelectionTitle.style.display = 'block';
-        //             cardsContainer.style.display = 'grid';
-        //             // Retirer l'affichage des boutons de mode
-        //             const gameModeSelection = document.querySelector('.game-mode-selection');
-        //             if (gameModeSelection) {
-        //                 gameModeSelection.style.display = 'none';
-        //             }
-        //         });
-        //     }
-
-        //     if (playOnlineBtn) {
-        //         playOnlineBtn.style.display = 'none'; // Cacher le bouton "Jouer en VS"
-        //     }
-
-        //     soloPlayCards.forEach(card => {
-        //         card.addEventListener('click', function(event) {
-        //             const category = this.dataset.category;
-        //             window.location.href = `quiz_${category}.php?mode=solo`;
-        //         });
-        //     });
-        // });
-    </script>
 </body>
 </html>

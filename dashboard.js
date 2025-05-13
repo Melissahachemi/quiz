@@ -1,3 +1,4 @@
+//script pour le dashboard
 $(document).ready(function() {
     const $modal = $("#modal-amis");
     const $closeModal = $("#close-modal");
@@ -106,7 +107,6 @@ $(document).ready(function() {
         $closeBtn.on("click", function() {
             const chatIdToRemove = $(this).data("chat-id");
             $(`#${chatIdToRemove}`).hide();
-            // delete openChats[friendId]; // Optionnellement supprimer complètement
         });
 
         makeChatDraggable($newChatBox); // Rendre la nouvelle chat box déplaçable
@@ -242,7 +242,7 @@ $(document).ready(function() {
         }
     });
 
-    // Best Score (inchangé)
+    // Best Score 
     const $bestScoreDisplay = $("#best-score-display");
     const $bestScoreValue = $("#best-score-value");
     const $bestScoreCategory = $("#best-score-category");
@@ -273,7 +273,7 @@ $(document).ready(function() {
         });
     });
 
-    // Classement avec fermeture automatique (inchangé)
+    // Classement avec fermeture automatique 
     const $classementSection = $("#classement-section");
     const $classementListe = $("#classement-liste");
     let classementTimeout;
@@ -326,7 +326,7 @@ $(document).ready(function() {
         }
     });
 
-    // Ajouter des amis (inchangé)
+    // Ajouter des amis
     const $ajouterAmisBtn = $("#ajouter-amis-btn");
     const $modalAjouterAmis = $("#modal-ajouter-amis");
     const $closeAjouterAmisModal = $("#close-ajouter-amis-modal");

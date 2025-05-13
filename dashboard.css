@@ -1,4 +1,4 @@
-/* Styles globaux */
+/* Style du tableau de bord */
 body {
     font-family: 'Comfortaa', sans-serif;
     background-color: #A7D1EB;
@@ -281,16 +281,16 @@ textarea {
     background-color: #1e7e34;
 }
 
-/* Mini chat box - nouveau style harmonisé */
+/* Mini chat box */
 .mini-chat-box {
-    background-color: #f4dada; /* Rose pâle comme l'en-tête */
-    border: 1px solid #d1a7b6; /* Bordure violet clair */
-    border-radius: 12px; /* Coins arrondis comme les autres éléments */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre plus douce */
+    background-color: #f4dada; 
+    border: 1px solid #d1a7b6; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     width: 300px;
     display: flex;
     flex-direction: column;
-    font-family: 'Comfortaa', sans-serif; /* Même police que le reste */
+    font-family: 'Comfortaa', sans-serif; 
     cursor: grab;
     position: absolute;
     bottom: 0;
@@ -298,11 +298,11 @@ textarea {
     transition: all 0.3s ease;
 }
 
-/* En-tête chat - nouveau style */
+/* En-tête chat  */
 .chat-header {
-    background-color: #a877b6; /* Violet comme les boutons */
-    color: white; /* Texte blanc */
-    padding: 12px 15px; /* Un peu plus de padding */
+    background-color: #a877b6; 
+    color: white; 
+    padding: 12px 15px; 
     border-bottom: 1px solid #8a5a9b;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -310,20 +310,20 @@ textarea {
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    font-size: 1.1em; /* Taille de police légèrement plus grande */
+    font-size: 1.1em; 
     cursor: grab;
 }
 
-/* Messages chat - nouveau style */
+/* Messages chat  */
 .chat-messages {
     padding: 12px 15px;
     overflow-y: auto;
     flex-grow: 1;
-    max-height: 250px; /* Un peu plus grand */
+    max-height: 250px; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Plus d'espace entre les messages */
-    background-color: rgba(255, 255, 255, 0.7); /* Fond blanc légèrement transparent */
+    gap: 10px; 
+    background-color: rgba(255, 255, 255, 0.7); 
 }
 
 .message {
@@ -340,26 +340,26 @@ textarea {
 }
 
 .message:hover {
-    transform: translateY(-2px); /* Effet de survol léger */
+    transform: translateY(-2px); 
 }
 
 .message.sent {
-    background-color: #d1a7eb; /* Violet très clair */
+    background-color: #d1a7eb; 
     border: 1px solid #b58fd1;
     align-self: flex-end;
-    color: #362121; /* Texte sombre pour contraste */
+    color: #362121; 
 }
 
 .message strong {
     font-weight: bold;
-    color: #5e3a71; /* Violet foncé */
+    color: #5e3a71;
     display: block;
     margin-bottom: 4px;
     font-size: 0.9em;
 }
 
 .message.sent strong {
-    color: #4a2d5a; /* Violet encore plus foncé */
+    color: #4a2d5a; 
 }
 
 .message small {
@@ -370,15 +370,15 @@ textarea {
     text-align: right;
 }
 
-/* Input chat - nouveau style */
+/* Input chat */
 .chat-input {
     display: flex;
     padding: 10px 12px;
     border-top: 1px solid #d1a7b6;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    background-color: #f4dada; /* Rose pâle comme l'en-tête */
-    gap: 8px; /* Espace entre input et bouton */
+    background-color: #f4dada;
+    gap: 8px;
 }
 
 .chat-input input[type="text"] {
@@ -398,7 +398,7 @@ textarea {
 }
 
 .chat-input button {
-    background-color: #a877b6; /* Violet comme les boutons */
+    background-color: #a877b6; 
     color: white;
     border: none;
     padding: 8px 9px;
@@ -411,11 +411,11 @@ textarea {
 }
 
 .chat-input button:hover {
-    background-color: #8a5a9b; /* Violet plus foncé au survol */
+    background-color: #8a5a9b; 
     transform: scale(1.02);
 }
 
-/* Bouton fermer chat - nouveau style */
+/* Bouton fermer chat  */
 .close-chat {
     cursor: pointer;
     font-size: 1.3em;
@@ -438,7 +438,7 @@ textarea {
     transform: rotate(90deg);
 }
 
-/* Bouton logout (position fixe) */
+/* Bouton logout  */
 .logout-button {
     background-color:#a877b6;
     color: white;
@@ -458,38 +458,36 @@ textarea {
     transform: scale(1.05);
 }
 
-/* Bouton démarrer chat dans liste amis - version compacte */
+/* Bouton démarrer chat dans liste amis */
 .start-chat-btn {
-    all : unset; /* Supprime tous les styles par défaut */
-    width: 80px; /* Largeur fixe carrée */
-    height: 25px; /* Hauteur égale à la largeur */
-    min-width: 24px; /* Empêche la réduction */
-    padding: 0 20px; /* Supprime tout padding */
+    all : unset; 
+    width: 80px;
+    height: 25px; 
+    min-width: 24px;
+    padding: 0 20px;
     margin-left: 5px;
     
-    /* Style visuel */
+   
     background-color: #a877b6;
     color: white;
     border: none;
-    border-radius: 6px; /* Coins légèrement arrondis */
+    border-radius: 6px; 
     cursor: pointer;
     
-    /* Centrage du contenu */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     
-    /* Animation */
     transition: all 0.2s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     
-    /* Utilisation d'une icône au lieu de texte */
+   
     font-size: 12px;
     line-height: 1;
 }
 
 .start-chat-btn:hover {
-    background-color: #8a5a9b; /* Violet légèrement plus foncé au survol */
+    background-color: #8a5a9b; 
     transform: scale(1.05);
 }
 

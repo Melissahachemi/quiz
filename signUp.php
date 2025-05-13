@@ -1,3 +1,4 @@
+<!-- Page d'inscription -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,19 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="logo-container">
-        <img src="logo.png" alt="Logo MYqwiz" class="top-right-logo">
-    </div>
-    
-    <div class="page-container">
-        <div class="right-content">
-            <p class="slogan">Fais partie de l'aventure MYqwiz !</p>
-            <img src="mario.jpg" alt="supermario" class="mario">
-        </div>
-        <div class="login-container">
-            <h2>Créer un compte MYqwiz</h2>
-            <?php
-                
+    <!-- Gestion des messages d'erreur et de succès -->
+    <?php
                 if (isset($_GET['error'])) {
                     $error = $_GET['error'];
                 
@@ -49,6 +39,17 @@
                 
                 
             ?>
+    <div class="logo-container"> <!-- Conteneur pour le logo -->
+        <img src="logo.png" alt="Logo MYqwiz" class="top-right-logo">
+    </div>
+    
+    <div class="page-container"> <!-- Conteneur principal de la page -->
+        <div class="right-content">
+            <p class="slogan">Fais partie de l'aventure MYqwiz !</p>
+            <img src="mario.jpg" alt="supermario" class="mario">
+        </div>
+        <div class="login-container">
+            <h2>Créer un compte MYqwiz</h2>
             <form action="process_signup.php" method="post">
                 <div class="form-group">
                     <label for="username">Nom d'utilisateur:</label>

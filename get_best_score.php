@@ -1,4 +1,6 @@
 <?php
+// Script pour récupérer le meilleur score d'un utilisateur
+// Utilisé pour afficher le meilleur score d'un utilisateur sur le tableau de bord
 session_start();
 require_once 'db_connect.php';
 
@@ -10,12 +12,13 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$response = [
+// Réponse par défaut si aucun score n'est trouvé
+$response = [ 
     'score' => 0, 
     'categorie' => 'Aucun quiz joué',
-    'hasScore' => false // Nouveau champ pour indiquer si un score existe
+    'hasScore' => false 
 ];
-
+// Requête pour récupérer le meilleur score de l'utilisateur
 $query = "SELECT categorie, score FROM scores WHERE user_id = ? ORDER BY score DESC LIMIT 1";
 $stmt = mysqli_prepare($conn, $query);
 
@@ -34,5 +37,5 @@ if ($stmt) {
     mysqli_stmt_close($stmt);
 }
 
-echo json_encode($response);
+echo json_encode($response); // Envoie la réponse au format JSON
 ?>
